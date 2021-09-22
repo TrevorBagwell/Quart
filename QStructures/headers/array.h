@@ -37,7 +37,7 @@ namespace quart
 
             ~array();
             /* OPERATORS */
-            reference<T> operator[](size_t index);
+            array<T> & operator[](size_t index);
             array<T> & operator=(array<T> & other_array);
 
             /* FUNCTIONS */
@@ -47,9 +47,12 @@ namespace quart
 
             
             template< typename ...Args>
-            reference<T> at(Args... args);
-            reference<T> at(std::initialize_list<int> argsList);
+            T & directAt(size_t index);
+            array<T> & at(Args... args);
+            array<T> & at(std::initialize_list<int> argsList);
             
+            size_t index(Args... args);
+            size_t index(std::initialize_list<int> argsList);
 
             tape<size_t> & dimensions();
             constexpr size_t size();

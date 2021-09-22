@@ -10,7 +10,6 @@ bool quart::array<T>::dimensionalize(Args... args)
     return this->dimensionalize(argsList);
 }
 
-
 template<typename T>
 bool quart::array<T>::dimensionalize(std::initialize_list<int> argsList)
 {
@@ -37,10 +36,18 @@ bool quart::array<T>::dimensionalize(std::initialize_list<int> argsList)
 
 
     // If there exists a single dimension, return true
-    if(dimensions.size() > 0) 
+    if(this->dimensions.size() > 0) 
     { 
         // Create the data array
-        this->data.resize(this->size());
+        size_t total_size = 1;
+        
+        // Collect all the dimensions
+        for(int index = 0; index < this->dimensions.size(); index++)
+        {
+            total_size *= this->dimensions[index];
+        }
+
+        this->data.resize(total_size);
 
         // Return the proper dimensionalization
         return true; 
@@ -49,6 +56,21 @@ bool quart::array<T>::dimensionalize(std::initialize_list<int> argsList)
     // Default return
     return false;
 }
+
+
+template<typename T, typename ...Args>
+quart::reference<T> quart::array<T>::at(Args... args)
+{
+    std::initializer_list<int> argsList({...args});
+    return this->at(argsList);
+}
+
+template <typename T>
+quart::reference<T> quart::array<T>::at(std::initialize_list<int> argsList)
+{
+
+}
+
 
 
 
