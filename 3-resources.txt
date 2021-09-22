@@ -1,0 +1,14 @@
+PyTorch: https://pytorch.org
+
+Numpy: https://numpy.org/doc/
+> https://dpilger26.github.io/NumCpp/doxygen/html/index.html
+
+SciKit: https://scikit-learn.org/0.21/documentation.html
+
+xtensor: https://xtensor.readthedocs.io/en/latest/getting_started.html
+
+TensorFlow: https://www.tensorflow.org/api_docs
+
+Pandas: https://pytorch.org
+
+

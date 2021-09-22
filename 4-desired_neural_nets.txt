@@ -1,0 +1,24 @@
+In PINT I would like to create working versions of all the following neural net types:
+
+> ANN
+> RNN
+> CNN
+> Hopfield
+> Boltzman
+> Markov Chain
+
+I would also like the ability to create the following cell types
+
+> Backfed Input
+> Input
+> Noisy Input
+> Hidden
+> Probabilistic Hidden
+> Spiking Hidden
+> Output
+> Match Input Output
+> Recurrent
+> Memory
+> Different Memory
+> Kernel
+> Convolution or Pool

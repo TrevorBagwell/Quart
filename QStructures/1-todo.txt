@@ -1,0 +1,12 @@
+
+TODONE: Instantiate the tape structure
+TODO: Instantiate the reference (index) structure
+TODO: Instantiate the array structure
+TODO: Instantiate the reference structure
+TODO: Instantiate the tensor structure
+TODO: Implement the tape structure
+TODO: Implement the reference (index) structure
+TODO: Implement the array structure
+TODO: Implement the reference structure
+TODO: Implement the tensor structure
+TODO: Determine the final name for the reference handler for a C++ array

@@ -1,0 +1,14 @@
+TODO: Look into a documentation site
+TODO: Have a meeting with Sri about the quart and the attempts to do variadic templating
+TODO: List the types of neural nets you want to build
+TODO: Reading and writing the contents of a neural network to a file
+TODO: Figure out methodologies for testing
+TODO: How to spoon (pint's equivalent of a fork)
+TODO: Figure out all the neural net node types that need to be coded
+TODO: Find tutorials on how to code each
+TODO (From Sri Meeting): Parse Files for todo's
+TODO (From Sri Meeting): Come up with pointer handlings
+TODO (From Sri Meeting): Come up with methodologies for just interacting with the existing code
+TODO (From Sri Meeting): Look at PINT test cases
+TODO (From Sri Meeting): Look into cmake, clang v gcc
+

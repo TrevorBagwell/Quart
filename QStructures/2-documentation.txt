@@ -1,0 +1,22 @@
+Tape:
+> A tape is a generic model for an augmented simple array. It's namesake is a turing tape, an infinite array of bits. However, we can only model tapes, so we have to do finite sized tapes.
+
+> Functions:
+
+>> Constructor
+>>> Takes in a number (preset to 0 if no number is provided) that allocates an array of the size of the given number, or in the instance of it being 0, sets it to null.
+
+>> Destructor
+>>> Deletes the array
+
+>> Index operator
+>>> Takes in an index (don't know what to define it as yet) and returns the itemat the given location
+
+>> Equality operator between 2 tapes of the same type
+>>> Clones the data from the second tape to the first tape
+
+
+
+
+
+
