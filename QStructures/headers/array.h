@@ -28,6 +28,10 @@ namespace quart
 
 
         public:
+        
+            static size_t undefined = (size_t) -1;
+        
+        
         // TODO: public functions go here
             array();
             template< typename ...Args>
@@ -42,8 +46,8 @@ namespace quart
 
             /* FUNCTIONS */
             template< typename ...Args>
-            bool dimensionalize(Args... args);
-            bool dimensionalize(std::initialize_list<int> argsList);
+            bool reshape(Args... args);
+            bool reshape(std::initialize_list<int> argsList);
 
             
             template< typename ...Args>
@@ -54,7 +58,7 @@ namespace quart
             size_t index(Args... args);
             size_t index(std::initialize_list<int> argsList);
 
-            tape<size_t> & dimensions();
+            tape<size_t> & shape();
             constexpr size_t size();
 
             array<T> & copy(array<T> & other_array);

@@ -3,15 +3,15 @@
 
 
 template<typename T, typename ...Args>
-bool quart::array<T>::dimensionalize(Args... args)
+bool quart::array<T>::reshape(Args... args)
 {
     std::initializer_list<int> argsList({args...});
     // Make sure they are all valid
-    return this->dimensionalize(argsList);
+    return this->reshape(argsList);
 }
 
 template<typename T>
-bool quart::array<T>::dimensionalize(std::initialize_list<int> argsList)
+bool quart::array<T>::reshape(std::initialize_list<int> argsList)
 {
 
     // Validate the args in args list
@@ -68,16 +68,29 @@ quart::reference<T> quart::array<T>::at(Args... args)
 template <typename T>
 quart::reference<T> quart::array<T>::at(std::initialize_list<int> argsList)
 {
+    return this->data.at(this->index);
+}
 
+
+template <typename T, typename ...Args>
+size_t quart::array<T>::index(Args... args)
+{
+    std::initializer_list<int> argsList({...args});
+    return this->index(argsList);
+}
+
+template <typename T>
+size_t quart::array<T>::index(std::initializer_list<int> argsList)
+{
+    
 }
 
 
 
 
 
-
 template <typename T>
-constexpr quart::tape<T> quart::array<T>::dimensions() { return this->dimensions; }
+constexpr quart::tape<T> quart::array<T>::shape() { return this->dimensions; }
 
 template <typename T>
 constexpr size_t quart::array<T>::size() { return this->data.size(); }
