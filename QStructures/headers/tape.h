@@ -1,5 +1,5 @@
-#ifndef TAPE_HH
-#define TAPE_HH
+#ifndef QTAPE_HH
+#define QTAPE_HH
 
 /* Defines */
 
@@ -18,6 +18,7 @@ namespace quart
             /* VARIABLES */
             T * data;
             size_t size;
+            bool isClone;
 
         public:
             /* CONSTRUCTORS */
@@ -30,9 +31,8 @@ namespace quart
             ~tape();
 
             /* OPERATORS */
-            inline T & operator[](size_t reference);
-            inline tape<T> & operator=(tape<T> & other_tape);
-            inline tape<T> & operator=(std::initializer_list<T> list);
+
+            inline T & operator=(tape<T> & other_tape);
             
             /* FUNCTIONS */
             constexpr size_t size();
@@ -41,10 +41,11 @@ namespace quart
             tape<T> & copy(tape<T> & other_tape);
             void resize(size_t new_size);
             void clear();
+            void destroy();
 
 
             tape<T> & clone(tape<T> & other_tape);
-
+            bool isClone();
             /* FRIEND */
             friend tape<T> & duplicate(tape<T> & other_tape);
 

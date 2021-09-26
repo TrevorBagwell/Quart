@@ -1,5 +1,5 @@
-#ifndef FUNCTION_HH
-#define FUNCTION_HH
+#ifndef QFUNCTION_HH
+#define QFUNCTION_HH
 
 
 

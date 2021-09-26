@@ -1,7 +1,7 @@
 #include "array.h"
 
 
-
+/*
 template<typename T, typename ...Args>
 bool quart::array<T>::reshape(Args... args)
 {
@@ -59,16 +59,18 @@ bool quart::array<T>::reshape(std::initialize_list<int> argsList)
 
 
 template<typename T, typename ...Args>
-quart::reference<T> quart::array<T>::at(Args... args)
+quart::array<T> & quart::array<T>::at(Args... args)
 {
     std::initializer_list<int> argsList({...args});
     return this->at(argsList);
 }
 
 template <typename T>
-quart::reference<T> quart::array<T>::at(std::initialize_list<int> argsList)
+quart::array<T> quart::array<T>::at(std::initialize_list<int> argsList)
 {
     return this->data.at(this->index);
+    // Validate that the args are within the dimensions and parameters set forward
+
 }
 
 
@@ -122,3 +124,15 @@ void quart::array<T>::clear()
     this->data.clear();
     this->dimensions.clear();
 }
+*/
+
+// REFACTOR
+/* 
+>> Reason: Added the shape object which basically takes in any arguments and converts it to a fixed number of values
+>> This allows for a few things:
+>>      0. For any indefinite argue call, it can be handled by the shape.
+>>         No more excessive functions.
+>>      1. Makes it more like numpy arrays where the shape of the object handles the call index requirement call 
+>>         and the data of the array is not restricted by the shape. Tight shaping does not exist.
+>>      2. This allows for cloning and copying of array data, while making the shape itself a distinct attribute
+*/

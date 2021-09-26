@@ -1,0 +1,13 @@
+Tapes:
+> Tapes are any index referenced collection of the same type where the information is stored contigously. 
+> Elements of a tape always have the same type, ensuring certain mathematical limitations and enabling significant reduction of complexity of mathematical operations.
+> Tapes contain an accesser for each of their elements and can tell their size.
+
+
+> Tapes have 4 ways of obtaining data:
+>> Direct Instantiation: Taking in a collection of already existing prvalues and creating a collection that can hold them directly
+>> Copying a Tape: The tape memory can be called by copying the data of the tape and then cloning each elements data in the existing tapes location
+>> Cloning a Tape: Cloning a tape copies the reference to the space and the size. A clone of a tape accesses the tape's space directly and 
+
+>> The ability to identify whether something is a clone is quite important.
+>> Thats why if we need to rehandle the 

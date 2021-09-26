@@ -3,7 +3,7 @@
 
 
 
-/* Constructors */
+/* CONSTRUCTORS */
 
 template<typename T>
 quart::tape<T>::tape() { this->clear(); }
@@ -18,22 +18,20 @@ template<typename T>
 quart::tape<T>::tape(std::initializer_list<T> list) { this->copy(other_tape); }
 
 
-/* Destructors */
+/* DESTRUCTORS */
 
 template<typename T>
 quart::tape<T>::~tape() { this->clear(); }
 
 
-
 /* OPERATORS */
-inline template<typename T>
-T & quart::tape<T>::operator[](size_t index) { return this->at(reference); }
 
-inline template<typename T>
-quart::tape<T> & quart::tape<T>::operator=(quart::tape<T> & other_tape) { return this->copy(other_tape); }
+template <typename T>
+inline T & quart::tape<T>::operator=(quart::tape<T> & other_data)
+{
+    this->copy(other_tape);
+}
 
-inline template<typename T>
-quart::tape<T> & quart::tape<T>::operator=(std::initializer_list<T> list) { return this->copy(list); }
 
 
 /* FUNCTIONS */
@@ -56,7 +54,7 @@ void resize(size_t new_size)
     // this call is useless. So only resize it if the size is different
     if(this->size != new_size)
     {
-        // Clear this and then give it the new size
+        // Destroy this and then give it the new size
         this->clear();
 
         // If we want to set it to a non-clear item, it must have a new_size greater than 0
@@ -75,13 +73,15 @@ void resize(size_t new_size)
 template<typename T>
 void quart::tape<T>::clear()
 {
-    // Delete the data if it exists
-    if(this->data != NULL) { delete this->data; }
+    // Deletes the data if it's not a clone and there is data to be deleted
+    if((this->isClone == false) && (this->data != NULL)) { delete this->data; }
     
-    // Set the data to NULL and 
-    this->data = NULL;
+    // Set it to it's primal state the data if it exists
+    this->data == NULL;
     this->size = 0;
+    this->isClone = false;
 }
+
 
 
 template<typename T>
@@ -133,11 +133,19 @@ quart::tape<T> & quart::tape<T>::copy(quart::tape<T> & other_tape)
 template <typename T>
 quart::tape<T> & clone(quart::tape<T> & other_tape)
 {
+    this->clear();
     this->data = other_tape.data;
     this->size = other_tape.size;
-
+    this->isClone = true;
     return *this;
 }
 
 template<typename T>
-static quart::tape<T> & quart::tape<T>::duplicate(quart::tape<T> & other_tape) { return new quart::tape<T>(other_tape); }
+bool quart::tape<T>::isClone()
+{
+    return this->isClone;
+}
+
+
+template<typename T>
+friend quart::tape<T> & quart::tape<T>::duplicate(quart::tape<T> & other_tape) { return new quart::tape<T>(other_tape); }

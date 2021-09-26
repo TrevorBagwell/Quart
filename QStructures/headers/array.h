@@ -1,5 +1,5 @@
-#ifndef ARRAY_HH
-#define ARRAY_HH
+#ifndef QARRAY_HH
+#define QARRAY_HH
 
 /* Includes */
 #include "tape.h"
